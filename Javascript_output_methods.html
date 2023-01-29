@@ -1,0 +1,44 @@
+<!-- Output Methods in Javascript: -->
+
+<!-- There are 4 types of output methods in js namely:
+     1. innerHTML
+     2. document.write()
+     3. window.alert() 
+     4. console.log()
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+</head>
+<body>
+<!------------------------------------------------------------->
+    <!--innerHTML-->
+
+        <h1 id="example"></h1>
+        <script>
+         document.getElementById("example").innerHTML=7+5;
+        </script>
+<!------------------------------------------------------------->
+    <!--document.write()-->
+
+        <script>
+                document.write(7+5);
+        </script>
+<!------------------------------------------------------------->
+    <!--window.alert()-->
+        
+        <script>
+            window.alert(7+5); // it is optional to write window because variables, properties, and methods by default belong to the window object
+        </script>
+<!------------------------------------------------------------->
+    <!--console.log()-->
+
+        <script>
+            console.log(7+5);
+        </script>
+<!------------------------------------------------------------->
+</body>
+</html>

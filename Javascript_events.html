@@ -1,0 +1,181 @@
+<!-- Javascript Events: -->
+
+<!--------------------------------------------------------------
+    JS events can broadly be divided into 4 main categories:
+
+    1)Mouse Events   2)Keyboard Events   3)Form Events   4)Window Events
+    * click          * keydown           * focus         * load
+    * mouseover      * keyup             * submit        * unload
+    * mouseout       * keypress          * blur          * resize      
+    * mousedown                          * change
+    * mouseup        
+    * mousemove      
+-------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS Events</title>
+</head>
+<body onload="myFunction8()" onresize="myFunction9()">
+
+    <!-- Click Event -->
+    <h1>Click Event</h1>
+    <button onclick="myFunction()">Click Me</button>
+    <p id="demo"></p>
+        <script>
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "Hello World";
+            }
+        </script>
+
+    <!-- Mouseover & Mouseout Event -->
+    <h1>Mouseover & Mouseout Event</h1>
+    <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="hello.gif" width="80" height="80">
+    <p>The function bigImg() is triggered when the user moves the mouse pointer over the image.</p>
+    <p>The function normalImg() is triggered when the mouse pointer is moved out of the image.</p>
+    <script>
+    function bigImg(x) {
+    x.style.height = "120px";
+    x.style.width = "120px";
+    }
+    function normalImg(x) {
+    x.style.height = "80px";
+    x.style.width = "80px";
+    }
+    </script>
+
+    <!-- Mousedown & Mouseup Events -->
+    <h1>Mousedown & Mouseup Event</h1>
+    <p>Clock the text below!</p>
+    <p id="myP" onmousedown="mouseDown()" onmouseup="mouseUp()">
+    The mouseDown() function sets the color of this text to red.
+    The mouseUp() function sets the color of this text to blue.
+    </p>
+    <script>
+    function mouseDown() {
+    document.getElementById("myP").style.color = "red";
+    }
+    function mouseUp() {
+    document.getElementById("myP").style.color = "blue";
+    }
+    </script>
+
+    <!-- Mousemove Event -->
+    <h1>Mousemove Event</h1>
+    <p id="program" onmousemove = "sayHello()">This is demo text for mousemove event.</p>
+    <script>
+        function sayHello() {
+            // alert("Mouse Move");
+            // document.getElementById("program").innerHTML = "Mouse Move";
+        }
+    </script>
+
+    <!-- keypress Event -->
+    <h1>Keypress Event</h1>
+    <p>A function is triggered when the user is pressing a key in the input field.</p>  
+    <input type="text" onkeypress="myFunction1()">
+    <script>
+    function myFunction1() {
+    alert("You pressed a key inside the input field");
+    }
+    </script>
+
+    <!-- keyup Event -->
+    <h1>Keyup Event</h1>
+    <p>A function is triggered when the user releases a key in the input field.</p>
+    <p>The function transforms the input field to upper case:</p>
+    Enter your name: <input type="text" id="fname" onkeyup="myFunction2()">
+    <script>
+    function myFunction2() {
+    let x = document.getElementById("fname");
+    x.value = x.value.toUpperCase();
+    }
+    </script>
+
+    <!-- keydown Event -->
+    <h1>Keydown Event</h1>
+    <p>Press a key in the input field:</p>
+    <input type="text" onkeydown="myFunction3()">
+    <p id="demo1"></p>
+    <script>
+    function myFunction3() {
+    document.getElementById("demo1").innerHTML = "You pressed a key inside the input field";
+    }
+    </script>
+
+    <!-- Focus Event -->
+    <h1>Focus Event</h1>
+    Enter your name: <input type="text" onfocus="myFunction4(this)">
+    <p>When the input field gets focus, a function changes the background-color.</p>
+    <script>
+    function myFunction4(x) {
+    x.style.background = "yellow";
+    }
+    </script>
+
+    <!-- Blur Event -->
+    <h1>Blur Event</h1>
+    Enter your name: <input type="text" id="fname1" onblur="myFunction5()">
+    <p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+    <script>
+    function myFunction5() {
+    let x = document.getElementById("fname1");
+    x.value = x.value.toUpperCase();
+    }
+    </script>
+
+    <!-- Change Event -->
+    <h1>Change Event</h1>
+    <p>Select a new car from the list.</p>
+    <select id="mySelect" onchange="myFunction6()">
+    <option value="Audi">Audi</option>
+    <option value="BMW">BMW</option>
+    <option value="Mercedes">Mercedes</option>
+    <option value="Volvo">Volvo</option>
+    </select>
+    <p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
+    <p id="demo2"></p>
+    <script>
+    function myFunction6() {
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("demo2").innerHTML = "You selected: " + x;
+    }
+    </script>
+
+    <!-- Submit Event -->
+    <h1>Submit Event</h1>
+    <p>When you submit the form, a function is triggered which alerts some text.</p>
+    <form action="Javascript_events.html" onsubmit="myFunction7()">
+    Enter name: <input type="text" name="fname2">
+    <input type="submit" value="Submit">
+    </form>
+    <script>
+    function myFunction7() {
+    alert("The form was submitted");
+    }
+    </script>
+
+    <!-- Load Event -->
+    <h1>Load Event</h1>
+    <script>
+        function myFunction8() {
+          alert("Page is loaded");
+        }
+    </script>
+    <p>When you load the page, a function is triggered which gives an alert. This function is declared with body.</p>
+
+    <!-- Resize Event -->
+    <h1>Resize Event</h1>
+    <p>Try to resize the browser window to display the windows height and width.</p>
+    <p id="demo3"></p>
+    <p><strong>Note:</strong> this example will not work properly in IE8 and earlier. IE8 and earlier do not support the outerWidth/outerHeight propery of the window object.</p>
+    <script>
+    function myFunction9() {
+    var w = window.outerWidth;
+    var h = window.outerHeight;
+    var txt = "Window size: width=" + w + ", height=" + h;
+    document.getElementById("demo3").innerHTML = txt;
+    }
+    </script>
+</body>
+</html>
